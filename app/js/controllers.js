@@ -1,8 +1,8 @@
 'use strict';
 
-var myAngle = angular.module('myAngle', []);
+var myControllers = angular.module('myControllers', []);
 
-myAngle.controller (
+myControllers.controller (
 	'PhoneListCtl', [
 		'$scope'
 		, '$http'
