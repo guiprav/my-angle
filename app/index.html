@@ -7,28 +7,45 @@
 <script src="js/controllers.js"></script>
 <body ng-app="myAngle">
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-2">
-				Search: <input ng-model="query">
-			</div>
-			<div class="col-md-10">
-				<div ng-controller="PhoneListCtl">
-					<p>
-						Phones found: {{ (phones | filter: query).length }}
-						<span ng-if="query">
-							(matching <b>{{query}}</b>)
-						</span>
-					</p>
-					<ul>
-						<li ng-repeat="phone in phones | filter: query">
-							<p>
-								{{phone.name}}
-							</p>
-							<p>
-								{{phone.description}}
-							</p>
-						</li>
-					</ul>
+		<div ng-controller="PhoneListCtl">
+			<div class="row">
+				<div class="col-md-2">
+					<div>
+						Search: <input ng-model="query">
+					</div>
+					<div>
+						Sort by:
+						<select ng-model="order">
+							<option value="name">
+								Alphabetical
+							</option>
+							<option value="age">
+								Newest
+							</option>
+							<option value="-age">
+								Oldest
+							</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-10">
+						<p>
+							Phones found: {{ (phones |filter: query).length }}
+							<span ng-if="query">
+								(matching <b>{{query}}</b>)
+							</span>
+						</p>
+						<ul>
+							<li ng-repeat="phone in phones |filter:query |orderBy:order">
+								<p>
+									{{phone.name}}
+								</p>
+								<p>
+									{{phone.description}}
+								</p>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
