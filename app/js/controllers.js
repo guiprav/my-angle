@@ -1,3 +1,5 @@
+'use strict';
+
 var myAngle = angular.module('myAngle', []);
 
 myAngle.controller (
