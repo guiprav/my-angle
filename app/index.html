@@ -35,14 +35,29 @@
 								(matching <b>{{query}}</b>)
 							</span>
 						</p>
-						<ul>
-							<li ng-repeat="phone in phones |filter:query |orderBy:order">
-								<p>
-									{{phone.name}}
-								</p>
-								<p>
-									{{phone.description}}
-								</p>
+						<ul class="phone-list">
+							<li
+								ng-repeat="phone in phones |filter:query |orderBy:order"
+								class="phone-list-item row"
+							>
+								<div class="col-md-1">
+									<a href="#/phones/{{phone.id}}">
+										<img
+											ng-src="{{phone.imageUrl}}"
+											class="phone-thumbnail"
+										>
+									</a>
+								</div>
+								<div class="col-md-11">
+									<p>
+										<a href="#/phones/{{phone.id}}">
+											{{phone.name}}
+										</a>
+									</p>
+									<p>
+										{{phone.description}}
+									</p>
+								</div>
 							</li>
 						</ul>
 					</div>
