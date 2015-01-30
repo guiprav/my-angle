@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="js/controllers.js"></script>
+<body ng-app="myAngle">
+	<div ng-controller="PhoneListCtl">
+		<p>
+			Number of phones: {{phones.length}}.
+		</p>
+		<ul>
+			<li ng-repeat="phone in phones">
+				<p>
+					{{phone.name}}
+				</p>
+				<p>
+					{{phone.description}}
+				</p>
+			</li>
+		</ul>
+	</div>
+</body>
