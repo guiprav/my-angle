@@ -6,19 +6,31 @@
 <script src="bower_components/angular/angular.js"></script>
 <script src="js/controllers.js"></script>
 <body ng-app="myAngle">
-	<div ng-controller="PhoneListCtl">
-		<p>
-			Number of phones: {{phones.length}}.
-		</p>
-		<ul>
-			<li ng-repeat="phone in phones">
-				<p>
-					{{phone.name}}
-				</p>
-				<p>
-					{{phone.description}}
-				</p>
-			</li>
-		</ul>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2">
+				Search: <input ng-model="query">
+			</div>
+			<div class="col-md-10">
+				<div ng-controller="PhoneListCtl">
+					<p>
+						Phones found: {{ (phones | filter: query).length }}
+						<span ng-if="query">
+							(matching <b>{{query}}</b>)
+						</span>
+					</p>
+					<ul>
+						<li ng-repeat="phone in phones | filter: query">
+							<p>
+								{{phone.name}}
+							</p>
+							<p>
+								{{phone.description}}
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
