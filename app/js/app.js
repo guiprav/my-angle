@@ -17,6 +17,12 @@ myAngle.config ([
 					, controller: 'PhoneListCtl'
 				}
 			)
+			.when (
+				'/phones/:phoneId', {
+					templateUrl: 'partials/phone-detail.html'
+					, controller: 'PhoneDetailCtl'
+				}
+			)
 			.otherwise ({
 				redirectTo: '/phones'
 			})
